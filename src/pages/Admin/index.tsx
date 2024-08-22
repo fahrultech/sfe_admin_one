@@ -10,7 +10,7 @@ const Admin = () => {
     dispatch(toggleSidebar())
   }
   return (
-    <div className="flex flex-col bg-red-400 mx-auto">
+    <div className="flex h-screen flex-col bg-red-400 mx-auto overflow-y-hidden">
       <div className="topbar flex fixed w-full">
         <div className={`py-[14px] px-[20px] text-blue-400 text-[30px] font-bold left-topbar w-[60px] ${isSidebarOpen ? 'md:w-[240px]' : 'md:w-[60px]'} h-[70px] bg-[#343c49] text-white`}>
           <span className="hidden md:block">{isSidebarOpen ? 'Admin One' : 'A'}</span> <span className="md:hidden">A</span>
@@ -26,9 +26,71 @@ const Admin = () => {
           />
         </div>
       </div>
-      <div className="leading-6 flex h-screen mt-[70px]">
+      <div className="h-screen flex mt-[70px]">
         <Sidebar />
-        <div className="content flex-grow bg-white py-[14px] px-[20px]"></div>
+        <div className="overflow-y-auto flex-grow content bg-white py-[14px] px-[20px]">
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+
+        </div>
       </div>
     </div>
   );

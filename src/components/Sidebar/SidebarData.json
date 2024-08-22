@@ -35,6 +35,66 @@
     ]
   },
   {
+    "name": "Admin UI",
+    "icon": "fa-server",
+    "subMenu": [
+      {
+        "name": "Grid",
+        "link": "admin-ui/grid"
+      },
+      {
+        "name": "Sweet Alert",
+        "link": "admin-ui/sweet-alert"
+      },
+      {
+        "name": "Tiles Box",
+        "link": "admin-ui/tiles-box"
+      },
+      {
+        "name": "Nestable List",
+        "link": "admin-ui/nestable-list"
+      },
+      {
+        "name": "Range Slider",
+        "link": "admin-ui/range-slider"
+      },
+      {
+        "name": "Ratings",
+        "link": "admin-ui/ratings"
+      }
+    ]
+  },
+  {
+    "name": "Admin UI",
+    "icon": "fa-server",
+    "subMenu": [
+      {
+        "name": "Grid",
+        "link": "admin-ui/grid"
+      },
+      {
+        "name": "Sweet Alert",
+        "link": "admin-ui/sweet-alert"
+      },
+      {
+        "name": "Tiles Box",
+        "link": "admin-ui/tiles-box"
+      },
+      {
+        "name": "Nestable List",
+        "link": "admin-ui/nestable-list"
+      },
+      {
+        "name": "Range Slider",
+        "link": "admin-ui/range-slider"
+      },
+      {
+        "name": "Ratings",
+        "link": "admin-ui/ratings"
+      }
+    ]
+  },
+  {
     "name": "Dashboard",
     "link": "/dashboard",
     "icon": "fa-tachometer"

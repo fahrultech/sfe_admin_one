@@ -14,7 +14,7 @@ const Sidebar = () => {
   const isSidebarOpen = useSelector((state: RootState) => state.sidebar.isSidebarOpen)
   const { width, height} = useScreenSize()
   const [metisMenu, setMetisMenu] = useState<MenuStatus>({'metis_1':false})
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState<MenuStatus>({'show_1':false})
   
  
   const openCloseMenu = (menuKey: string, index: number, e: any) => {
@@ -26,39 +26,45 @@ const Sidebar = () => {
     }
   }
 
-  const showAll = () => {
+  const showAll = (showKey:string, index:number, e:any) => {
     if(width < 768 || !isSidebarOpen){
-        setShow(true)
+        setShow(prevState => ({
+            ...prevState,
+            [showKey]: true
+        }))
     }
     return
   }
 
-  const hideAll = () => {
+  const hideAll = (showKey:string, index:number, e:any) => {
     if(width < 768 || !isSidebarOpen){
-        setShow(false)
+        setShow(prevState => ({
+            ...prevState,
+            [showKey]: false
+        }))
     }
     return 
   }
 
   return (
-    <div className={`hidden sm:block ${isSidebarOpen ? 'md:w-[240px]' : 'md:w-[60px]' } sm:w-[60px] bg-[#343c49] text-gray-300 sidebar-menu`}>
+    <div className={`scrollable h-full ${isSidebarOpen && 'md:overflow-y-auto'} hidden sm:block ${isSidebarOpen && 'md:w-[240px]' } sm:w-[60px] bg-[#343c49] text-gray-300 sidebar-menu`}>
       <div className="left side-menu">
         <ul className="bg-[#343c49]">
           {SideMenuData.map((side, index) =>
             side.subMenu !== undefined ? (
-              <li onMouseOut={hideAll} onMouseOver={showAll} onClick={(e) => openCloseMenu(`metis_${index}`, index, e)} className="group w-[240px] relative">
+              <li onMouseOut={(e)=>hideAll(`show_${index}`,index, e)} onMouseOver={(e)=>showAll(`show_${index}`, index, e)} onClick={(e) => openCloseMenu(`metis_${index}`, index, e)} className="group w-[240px] relative">
                 <a
-                  className={`text-[15px] w-[60px] group-hover:w-[240px] ${isSidebarOpen ? 'md:w-[240px]' : 'md:w-[60px]'} bg-[#343c49] hover:bg-[#2f3642] block py-[14px] px-[20px] relative`}
+                  className={`text-[15px] w-[60px] group-hover:w-[240px] ${isSidebarOpen && 'md:w-[240px]'} bg-[#343c49] hover:bg-[#2f3642] block py-[14px] px-[20px] relative`}
                   href="#"
                 >
-                  <i className={`fa ${side.icon} mr-2 group-hover:mr-6 md:group-hover:mr-2`}></i>
+                  <i className={`fa ${side.icon} mr-2 group-hover:mr-7 ${isSidebarOpen&&'md:group-hover:mr-2'}`}></i>
                   <span className={`hidden ${isSidebarOpen ? 'md:inline' : 'md:hidden'} group-hover:inline`}>
                     {side.name}
                   </span>
                   <span className={`hidden ${isSidebarOpen ? 'md:block' : 'md:hidden'} text-[12px] text-white float-right arrow-right arrow-right`}></span>
                 </a>
-                <ul style={{ height : metisMenu[`metis_${index}`] || show ? 37* side.subMenu.length : ''}} 
-                    className={`${show ? 'showAll' : '' } hidden ${isSidebarOpen ? 'md:block' : 'md:hidden'} submenu text-sm`}>
+                <ul style={{ height : metisMenu[`metis_${index}`] || show[`show_${index}`] ? 37* side.subMenu.length : ''}} 
+                    className={`${show[`show_${index}`] ? 'showAll' : '' } hidden ${isSidebarOpen ? 'md:block' : 'md:hidden'} submenu text-sm`}>
                   {side.subMenu.map((menu, index) => (
                     <li>
                       <a
